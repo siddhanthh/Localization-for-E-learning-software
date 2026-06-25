@@ -95,6 +95,11 @@ For security, keep API keys out of your code files. Set the following environmen
 
 Once installed, use the `docx-translate` command directly, or run the package entry module via Python.
 
+### Target Language Inputs
+The tool dynamically resolves the target language. You can input:
+- **Shorthand ISO Codes**: e.g., `es`, `th`, `fr`, `zh-CN`.
+- **Full Language Names** (case-insensitive): e.g., `Spanish`, `Thai`, `French`, `German`.
+
 ### Standard Translate (Single Step)
 Inputs the `.docx` document and translates the `Translation` column to the target language:
 
