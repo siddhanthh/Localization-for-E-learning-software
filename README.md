@@ -104,10 +104,13 @@ The tool dynamically resolves the target language. You can input:
 Inputs the `.docx` document and translates the `Translation` column to the target language:
 
 ```bash
-# Using CLI entry point
+# Easiest: Using the root launcher script
+python run.py input.docx th
+
+# Or using the CLI command (if installed via pip install -e .)
 docx-translate input.docx th
 
-# Or running through python directly
+# Or running the module directly
 python -m docx_translator.cli input.docx th
 ```
 *Output will be saved as `input_th.docx`.*
@@ -208,6 +211,7 @@ docx-translator/
 ├── README.md               # User manual and configuration details
 ├── requirements.txt        # Python dependency list
 ├── setup.py                # Setup script for setuptools packaging
+├── run.py                  # Root launcher script for direct execution
 ├── docx_translator/        # Core package folder
 │   ├── __init__.py         # Package level initialization
 │   ├── cli.py              # Command-Line Parser and runner
