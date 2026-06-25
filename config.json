@@ -1,0 +1,27 @@
+{
+  "translation_backend": "google_translator",
+  "gemini": {
+    "api_key": "",
+    "model": "gemini-1.5-flash",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+  },
+  "rate_limiting": {
+    "max_requests_per_minute": 300,
+    "max_tokens_per_minute": 40000,
+    "max_batch_size": 20,
+    "retry_backoff_factor": 2.0,
+    "max_retries": 5
+  },
+  "concurrency": {
+    "num_workers": 8
+  },
+  "files": {
+    "input_docx": "SMENFP1.docx",
+    "output_docx": "SMENFP1_th.docx",
+    "test_docx": "SMENFP1_test.docx",
+    "translation_memory": "translation_memory.json",
+    "glossary": "glossary.json",
+    "analysis_report": "analysis_report.json",
+    "review_report": "review_report.csv"
+  }
+}

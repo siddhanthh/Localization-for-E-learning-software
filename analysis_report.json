@@ -1,0 +1,11 @@
+{
+  "input_file": "SMENFP1.docx",
+  "tables_containing_translation_column": 1,
+  "total_rows_scanned": 2391,
+  "cells_requiring_translation": 1874,
+  "already_thai_cells": 0,
+  "protected_strings": 212,
+  "placeholders_detected": 3,
+  "repeated_strings_for_tm": 243,
+  "unique_translatable_strings": 1217
+}
