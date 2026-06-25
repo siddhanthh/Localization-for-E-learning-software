@@ -166,6 +166,40 @@ docx-translate course_export.docx th --analyze-only
 
 ---
 
+## File Storage Guidelines
+
+You can store your `.docx` documents anywhere on your local system (for example, on your Desktop, in a dedicated project directory, or in the workspace root). 
+
+To run the translation tool, simply pass the relative or absolute path of your document file to the CLI:
+```bash
+# Using a relative path
+docx-translate ../documents/elearning_module.docx es
+
+# Using an absolute path
+docx-translate "C:\Users\Siddhanth Sharma\Desktop\module_1.docx" th
+```
+
+---
+
+## How It Works & Concurrency Model
+
+### 1. Document Parsing & Structure Identification
+The utility scans the tables inside the target Word Document to locate columns matching the target header (default is `"Translation"`).
+
+### 2. High-Performance Concurrency (8 Parallel Workers)
+To maximize throughput and bypass single-request network latency, the translation engine operates on a multi-threaded architecture:
+- When translating, the pipeline groups all target cells to translate.
+- It spins up a Python thread pool executor utilizing **8 concurrent worker threads** (configurable via `"concurrency": {"num_workers": 8}` in `config.json`).
+- These 8 workers concurrently fetch translations from your backend (Gemini API or Google Translate) and pre-populate the local **Translation Memory**.
+
+### 3. Clean Inline Run Merging
+For text runs with inline formatting (like italicized or bolded text in the middle of sentences), the engine converts them to XML-tagged sequences (e.g., `<r0>text</r0>`), sends the tagged text for translation, verifies tags in the reply, and applies formatting back to individual runs.
+
+### 4. Layout Conservation
+Once text is translated, the engine deep-copies structural table properties—including column dimensions (`tblGrid`), cell bounds (`tcPr`), and row metrics (`trPr`)—from the source template onto the translated document, keeping the design layout identical to the original course export.
+
+---
+
 ## Project Structure
 
 ```
