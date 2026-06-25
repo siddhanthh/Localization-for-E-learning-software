@@ -14,14 +14,5 @@
   },
   "concurrency": {
     "num_workers": 8
-  },
-  "files": {
-    "input_docx": "SMENFP1.docx",
-    "output_docx": "SMENFP1_th.docx",
-    "test_docx": "SMENFP1_test.docx",
-    "translation_memory": "translation_memory.json",
-    "glossary": "glossary.json",
-    "analysis_report": "analysis_report.json",
-    "review_report": "review_report.csv"
   }
 }

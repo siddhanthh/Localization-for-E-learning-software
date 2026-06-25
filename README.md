@@ -151,12 +151,12 @@ options:
 # Set key
 set GEMINI_API_KEY=AIzaSy...
 
-docx-translate SMENFP1.docx es --backend gemini --review-report review_es.csv
+docx-translate course_export.docx es --backend gemini --review-report review_es.csv
 ```
 
 #### Analyze a document without translating
 ```bash
-docx-translate SMENFP1.docx th --analyze-only
+docx-translate course_export.docx th --analyze-only
 ```
 
 ---
